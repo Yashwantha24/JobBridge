@@ -21,7 +21,7 @@ const RecruiterDashboard = () => {
 
     const fetchMyJobs = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/recruiter/jobs');
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/recruiter/jobs`);
             setJobs(res.data);
         } catch (error) {
             console.error('Error fetching jobs', error);
@@ -34,7 +34,7 @@ const RecruiterDashboard = () => {
     const handleCreateJob = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/jobs', newJob);
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/jobs`, newJob);
             setNewJob({ title: '', description: '', location: '', salary: '', jobType: 'Full-time', skillsRequired: '' });
             fetchMyJobs();
             toast.success('Job Posted Successfully!');
@@ -47,7 +47,7 @@ const RecruiterDashboard = () => {
     const fetchApplications = async (jobId) => {
         setSelectedJobId(jobId);
         try {
-            const res = await axios.get(`http://localhost:5000/api/recruiter/applications/${jobId}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/recruiter/applications/${jobId}`);
             setApplications(res.data);
         } catch (error) {
             console.error(error);
@@ -57,7 +57,7 @@ const RecruiterDashboard = () => {
 
     const updateStatus = async (appId, status) => {
         try {
-            await axios.put(`http://localhost:5000/api/recruiter/application/${appId}/status`, { status });
+            await axios.put(`${import.meta.env.VITE_API_URL}/api/recruiter/application/${appId}/status`, { status });
             toast.success(`Application ${status}`);
             if (selectedJobId) fetchApplications(selectedJobId);
         } catch (error) {
@@ -199,7 +199,7 @@ const RecruiterDashboard = () => {
                                         </div>
 
                                         <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-200">
-                                            <a href={`http://localhost:5000/${app.resumeUrl}`} target="_blank" rel="noopener noreferrer" className="text-indigo-600 text-sm font-medium hover:underline">
+                                            <a href={`${import.meta.env.VITE_API_URL}/${app.resumeUrl}`} target="_blank" rel="noopener noreferrer" className="text-indigo-600 text-sm font-medium hover:underline">
                                                 View Resume
                                             </a>
                                             <div className="flex-grow"></div>

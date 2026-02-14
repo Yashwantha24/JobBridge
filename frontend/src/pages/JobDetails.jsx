@@ -18,7 +18,7 @@ const JobDetails = () => {
     useEffect(() => {
         const fetchJob = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/jobs/${id}`);
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/jobs/${id}`);
                 setJob(res.data);
             } catch (err) {
                 toast.error('Failed to load job details');
@@ -41,7 +41,7 @@ const JobDetails = () => {
 
         setApplying(true);
         try {
-            await axios.post('http://localhost:5000/api/student/apply', { jobId: id });
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/student/apply`, { jobId: id });
             toast.success('Application submitted successfully!');
         } catch (error) {
             console.error('Apply Error:', error);

@@ -19,8 +19,8 @@ const StudentDashboard = () => {
     const fetchData = async () => {
         try {
             const [profileRes, appsRes] = await Promise.all([
-                axios.get('http://localhost:5000/api/student/profile'),
-                axios.get('http://localhost:5000/api/student/applications')
+                axios.get(`${import.meta.env.VITE_API_URL}/api/student/profile`),
+                axios.get(`${import.meta.env.VITE_API_URL}/api/student/applications`)
             ]);
             if (profileRes.data) setProfile(profileRes.data);
             setApplications(appsRes.data);
@@ -35,7 +35,7 @@ const StudentDashboard = () => {
     const handleProfileUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.put('http://localhost:5000/api/student/profile', profile);
+            await axios.put(`${import.meta.env.VITE_API_URL}/api/student/profile`, profile);
             toast.success('Profile updated successfully');
         } catch (error) {
             toast.error('Update failed');
@@ -50,7 +50,7 @@ const StudentDashboard = () => {
         formData.append('resume', resume);
 
         try {
-            await axios.post('http://localhost:5000/api/student/upload-resume', formData, {
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/student/upload-resume`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             toast.success('Resume uploaded successfully');
@@ -147,8 +147,8 @@ const StudentDashboard = () => {
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-gray-900">{app.job?.title}</h3>
                                     <span className={`px-2 py-1 rounded text-xs font-bold uppercase ${app.status === 'shortlisted' ? 'bg-green-100 text-green-700' :
-                                            app.status === 'rejected' ? 'bg-red-100 text-red-700' :
-                                                'bg-blue-100 text-blue-700'
+                                        app.status === 'rejected' ? 'bg-red-100 text-red-700' :
+                                            'bg-blue-100 text-blue-700'
                                         }`}>
                                         {app.status}
                                     </span>
