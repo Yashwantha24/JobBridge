@@ -14,7 +14,14 @@ const { errorMiddleware } = require('./middleware/errorMiddleware');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://job-bridge-drab.vercel.app",
+    "https://job-bridge-9fspzcv6k-yashwantha-k-ts-projects.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Security Headers
@@ -44,9 +51,7 @@ app.get('/', (req, res) => {
       <body>
         <h1>JobBridge Backend API is Running</h1>
         <p>You are currently accessing the Backend API server.</p>
-        <p>To view the <b>JobBridge Frontend</b> (User Interface), please click the button below:</p>
-        <br>
-        <a href="http://localhost:5173">Go to JobBridge Frontend</a>
+        <p>This is the backend server. The frontend is hosted separately.</p>
       </body>
     </html>
   `);
