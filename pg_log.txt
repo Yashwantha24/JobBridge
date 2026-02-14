@@ -208,3 +208,16 @@
 2026-02-14 01:33:54.460 IST [15908] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
 2026-02-14 01:33:54.466 IST [14668] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
 2026-02-14 01:33:54.471 IST [7768] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
+2026-02-14 15:32:44.294 IST [19340] LOG:  starting PostgreSQL 18.2 on x86_64-windows, compiled by msvc-19.44.35222, 64-bit
+2026-02-14 15:32:44.301 IST [19340] LOG:  listening on IPv6 address "::1", port 5432
+2026-02-14 15:32:44.302 IST [19340] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-02-14 15:32:44.390 IST [24432] LOG:  database system was interrupted; last known up at 2026-02-14 00:11:28 IST
+2026-02-14 15:32:44.881 IST [24432] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-02-14 15:32:44.888 IST [24432] LOG:  redo starts at 0/2B168E8
+2026-02-14 15:32:44.889 IST [24432] LOG:  invalid record length at 0/2B16A28: expected at least 24, got 0
+2026-02-14 15:32:44.889 IST [24432] LOG:  redo done at 0/2B169F0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-02-14 15:32:44.893 IST [12752] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-02-14 15:32:44.909 IST [12752] LOG:  checkpoint complete: wrote 0 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.003 s, total=0.018 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/2B16A28, redo lsn=0/2B16A28
+2026-02-14 15:32:44.917 IST [19340] LOG:  database system is ready to accept connections
+2026-02-14 15:37:44.923 IST [12752] LOG:  checkpoint starting: time
+2026-02-14 15:37:57.011 IST [12752] LOG:  checkpoint complete: wrote 110 buffers (0.7%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=11.981 s, sync=0.075 s, total=12.089 s; sync files=44, longest=0.020 s, average=0.002 s; distance=680 kB, estimate=680 kB; lsn=0/2BC0E68, redo lsn=0/2BC0DD8
