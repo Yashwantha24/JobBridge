@@ -49,9 +49,8 @@ An advanced full-stack job platform connecting students with recruiters. Feature
 
 ## 📝 Usage
 
--   **Frontend**: [http://localhost:5173](http://localhost:5173)
--   **Backend API**: [http://localhost:5000](http://localhost:5000)
-
+-  *Frontend Link-https://job-bridge-drab.vercel.app/
+-  *Backend Link-https://jobbridge-backend-1j9e.onrender.com/
 ## 🛡️ Security Features
 -   **Input Validation**: Protects against SQL injection and invalid data.
 -   **File Security**: Only valid PDF files with readable text are accepted for resumes.
