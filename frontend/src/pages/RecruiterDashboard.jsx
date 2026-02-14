@@ -21,7 +21,8 @@ const RecruiterDashboard = () => {
 
     const fetchMyJobs = async () => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/recruiter/jobs`);
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            const res = await axios.get(`${BASE_URL}/api/recruiter/jobs`);
             setJobs(res.data);
         } catch (error) {
             console.error('Error fetching jobs', error);
@@ -34,7 +35,8 @@ const RecruiterDashboard = () => {
     const handleCreateJob = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/api/jobs`, newJob);
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            await axios.post(`${BASE_URL}/api/jobs`, newJob);
             setNewJob({ title: '', description: '', location: '', salary: '', jobType: 'Full-time', skillsRequired: '' });
             fetchMyJobs();
             toast.success('Job Posted Successfully!');
@@ -47,7 +49,8 @@ const RecruiterDashboard = () => {
     const fetchApplications = async (jobId) => {
         setSelectedJobId(jobId);
         try {
-            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/recruiter/applications/${jobId}`);
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            const res = await axios.get(`${BASE_URL}/api/recruiter/applications/${jobId}`);
             setApplications(res.data);
         } catch (error) {
             console.error(error);
@@ -57,7 +60,8 @@ const RecruiterDashboard = () => {
 
     const updateStatus = async (appId, status) => {
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL}/api/recruiter/application/${appId}/status`, { status });
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            await axios.put(`${BASE_URL}/api/recruiter/application/${appId}/status`, { status });
             toast.success(`Application ${status}`);
             if (selectedJobId) fetchApplications(selectedJobId);
         } catch (error) {

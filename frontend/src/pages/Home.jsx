@@ -16,7 +16,8 @@ const Home = () => {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/jobs`);
+                const BASE_URL = import.meta.env.VITE_API_URL;
+                const res = await axios.get(`${BASE_URL}/api/jobs`);
                 setJobs(res.data.jobs || []);
                 setFilteredJobs(res.data.jobs || []);
             } catch (err) {

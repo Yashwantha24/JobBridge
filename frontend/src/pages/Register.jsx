@@ -19,7 +19,8 @@ const Register = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, formData);
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            await axios.post(`${BASE_URL}/api/auth/register`, formData);
             toast.success('Account created! Please login.');
             navigate('/login');
         } catch (err) {

@@ -16,7 +16,8 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, formData);
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            const res = await axios.post(`${BASE_URL}/api/auth/login`, formData);
             login(res.data.user, res.data.token);
             toast.success('Welcome back!');
             navigate('/');

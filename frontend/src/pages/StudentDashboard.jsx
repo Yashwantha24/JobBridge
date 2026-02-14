@@ -18,9 +18,10 @@ const StudentDashboard = () => {
 
     const fetchData = async () => {
         try {
+            const BASE_URL = import.meta.env.VITE_API_URL;
             const [profileRes, appsRes] = await Promise.all([
-                axios.get(`${import.meta.env.VITE_API_URL}/api/student/profile`),
-                axios.get(`${import.meta.env.VITE_API_URL}/api/student/applications`)
+                axios.get(`${BASE_URL}/api/student/profile`),
+                axios.get(`${BASE_URL}/api/student/applications`)
             ]);
             if (profileRes.data) setProfile(profileRes.data);
             setApplications(appsRes.data);
@@ -35,7 +36,8 @@ const StudentDashboard = () => {
     const handleProfileUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL}/api/student/profile`, profile);
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            await axios.put(`${BASE_URL}/api/student/profile`, profile);
             toast.success('Profile updated successfully');
         } catch (error) {
             toast.error('Update failed');
@@ -50,7 +52,8 @@ const StudentDashboard = () => {
         formData.append('resume', resume);
 
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/api/student/upload-resume`, formData, {
+            const BASE_URL = import.meta.env.VITE_API_URL;
+            await axios.post(`${BASE_URL}/api/student/upload-resume`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             toast.success('Resume uploaded successfully');
