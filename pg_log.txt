@@ -204,3 +204,7 @@
 2026-02-14 00:06:25.865 IST [14640] LOG:  checkpoint complete: wrote 43 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.638 s, sync=0.077 s, total=4.755 s; sync files=44, longest=0.021 s, average=0.002 s; distance=19 kB, estimate=1632 kB; lsn=0/2B115B0, redo lsn=0/2B11558
 2026-02-14 00:11:23.552 IST [14640] LOG:  checkpoint starting: time
 2026-02-14 00:11:28.333 IST [14640] LOG:  checkpoint complete: wrote 43 buffers (0.3%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.677 s, sync=0.074 s, total=4.782 s; sync files=44, longest=0.021 s, average=0.002 s; distance=20 kB, estimate=1471 kB; lsn=0/2B16978, redo lsn=0/2B168E8
+2026-02-14 01:33:54.460 IST [13292] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
+2026-02-14 01:33:54.460 IST [15908] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
+2026-02-14 01:33:54.466 IST [14668] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
+2026-02-14 01:33:54.471 IST [7768] FATAL:  could not open shared memory segment "Global/PostgreSQL.1359436520": No such file or directory
